@@ -1,12 +1,23 @@
-# Getting Started with Create React App
+# Getting Started with React Firebase Authentication
+
+A react application built to provide authentication for web applications
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Installation
+
+Install the following packages
+
+Firebase (npm i firebase)
+React router dom (npm i react-router-dom)
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+### `npm install` (to install the dependency)
+
+### `npm start` (to start the application)
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
