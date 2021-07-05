@@ -2,6 +2,12 @@
 
 A react application built to provide authentication for web applications
 
+The features are:
+Sign up
+Login
+Email verification
+And Password Reset
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Installation
