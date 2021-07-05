@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import firebase from "firebase/app";
 import { Spinner, ForgotPasswordForm } from "../components/";
+import { useHistory } from "react-router-dom";
 
 export const LoginForm = () => {
   const [email, setEmail] = useState("");
@@ -8,6 +9,7 @@ export const LoginForm = () => {
 
   const [loading, setloading] = useState("");
   const [errorMessage, seterrorMessage] = useState("");
+  const history = useHistory()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,12 +26,14 @@ export const LoginForm = () => {
           .then((userCredential) => {
             // Signed in
             var user = userCredential.user;
-            // ...
+            // route to home page
+            if(user) return history.push("/")
           })
           .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
             seterrorMessage(errorMessage);
+            setloading("");
           });
       } catch (error) {
         seterrorMessage(error.message);

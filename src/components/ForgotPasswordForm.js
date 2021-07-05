@@ -19,10 +19,8 @@ export const ForgotPasswordForm = () => {
     } else {
       try {
         var actionCodeSettings = {
-          url:
-            "localhost:3000?email=" +
-            firebase.auth().currentUser.email,
-          handleCodeInApp: true
+          url: "http://localhost:3000/success-password-reset",
+          handleCodeInApp: true,
         };
         await firebase
           .auth()
@@ -76,12 +74,12 @@ export const ForgotPasswordForm = () => {
                 </div>
               )}
               {message && (
-                <div className="my-3 py-2 alert alert-danger">
+                <div className="my-3 py-2 alert alert-success">
                   <p className="pb-0">{message}</p>
                 </div>
               )}
               <div className="mb-3">
-                <label htmlFor="email" className="form-label">
+                <label htmlFor="email3" className="form-label">
                   Email address
                 </label>
                 <input
@@ -89,7 +87,7 @@ export const ForgotPasswordForm = () => {
                   onChange={(e) => setEmail(e.target.value)}
                   type="email"
                   className="form-control"
-                  id="email"
+                  id="email3"
                   aria-describedby="emailHelp"
                 />
               </div>

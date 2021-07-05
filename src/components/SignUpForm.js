@@ -31,6 +31,10 @@ export const SignUpForm = () => {
             var user = userCredential.user;
             //if user was signed up
             if (user) {
+              /*  var actionCodeSettings = {
+                 url: "http://localhost:3000/success-registration",
+                 handleCodeInApp: true,
+               }; */
               // 2. send email verification
               firebase
                 .auth()
@@ -43,16 +47,17 @@ export const SignUpForm = () => {
                       displayName: fullName,
                     })
                     .then(() => {
+                      setloading("");
                       // Update successful
-                      window.localStorage.setItem("email", email)
+                      window.localStorage.setItem("email", email);
                       window.localStorage.setItem("fullName", fullName);
                       // 4.  redirect to verify email
                       history.push("/email-sent");
                     })
                     .catch((error) => {
-                      setloading("");
                       // An error occurred
                       seterrorMessage(error.message);
+                      setloading("");
                     });
                 });
             }
@@ -95,7 +100,7 @@ export const SignUpForm = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="email" className="form-label">
+              <label htmlFor="email2" className="form-label">
                 Email address
               </label>
               <input
@@ -103,7 +108,7 @@ export const SignUpForm = () => {
                 onChange={(e) => setEmail(e.target.value)}
                 type="email"
                 className="form-control"
-                id="email"
+                id="email2"
                 aria-describedby="emailHelp"
               />
               <div id="emailHelp" className="form-text">
@@ -111,19 +116,21 @@ export const SignUpForm = () => {
               </div>
             </div>
             <div className="mb-3">
-              <label htmlFor="password" className="form-label">
+              <label htmlFor="password2" className="form-label">
                 Password
               </label>
               <input
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                type="password"
+                type="password2"
                 className="form-control"
                 id="password"
               />
             </div>
-            <button type="submit" className="btn btn-primary btn-block w-100 mt-3"
-            disabled={!fullName || !email || !password}>
+            <button
+              type="submit"
+              className="btn btn-primary btn-block w-100 mt-3"
+              disabled={!fullName || !email || !password}>
               {loading} Sign up
             </button>
           </form>

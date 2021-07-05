@@ -4,6 +4,7 @@ import {
   LoginSignUp,
   EmailSent,
   SuccessOnRegistration,
+  SuccessOnPasswordReset,
   PageNotFound,
 } from "./routes";
 
@@ -20,8 +21,11 @@ function App() {
         <Route path="/email-sent">
           <EmailSent />
         </Route>
-        <Route path="/success">
+        <Route path="/success-registration">
           <SuccessOnRegistration />
+        </Route>
+        <Route path="/success-password-reset">
+          <SuccessOnPasswordReset />
         </Route>
         <Route path="*">
           <PageNotFound />
