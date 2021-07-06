@@ -7,12 +7,12 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 var firebaseConfig = {
-  apiKey: "AIzaSyCqRhwJOHq9LDiagRhwV_q5a7jFYyBzxlM",
-  authDomain: "react-and-firebase-ffd0d.firebaseapp.com",
-  projectId: "react-and-firebase-ffd0d",
-  storageBucket: "react-and-firebase-ffd0d.appspot.com",
-  messagingSenderId: "225614522817",
-  appId: "1:225614522817:web:ebba14395b686912ab6740",
+  apiKey: "AIzaSyC2j6KoRP1ksyqRgR5fDHPCniW-YafgWkI",
+  authDomain: "shopping-cart-3889a.firebaseapp.com",
+  projectId: "shopping-cart-3889a",
+  storageBucket: "shopping-cart-3889a.appspot.com",
+  messagingSenderId: "961349540519",
+  appId: "1:961349540519:web:8a4820557b150f7a085982",
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
