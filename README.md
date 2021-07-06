@@ -1,8 +1,10 @@
-# Getting Started with React Firebase Authentication
+# React Shopping Cart
 
-A react application built to provide authentication for web applications
+A react shopping cart application built with redux
 
 The features are:
+Add to cart
+Add to wishlist
 Sign up
 Login
 Email verification
