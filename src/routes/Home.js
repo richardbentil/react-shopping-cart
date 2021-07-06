@@ -1,95 +1,51 @@
-import React, { useEffect, useState } from 'react'
-import firebase from 'firebase/app'
-import {Link, useHistory} from 'react-router-dom'
+import React from 'react'
+import { Aside, Product } from '../components';
 
-export const Home = () => {
-  const [errorMessage, seterrorMessage] = useState()
-  const [user, setuser] = useState({
-    name: "",
-    email: "",
-    picture: "",
-  })
-
-  const history = useHistory()
-
-  useEffect(() => {
-    const unsubscribe = firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // User is signed in
-        setuser({
-          name: user.displayName,
-          email: user.email,
-          picture: user.photoURL
-        })
-        // ...
-        console.log(user)
-      } else {
-        // User is signed out
-        // ...
-        console.log("user data missing")
-      }
-    });
-    return unsubscribe()
-  }, [])
-
-  const handleLogout = async() => {
-    console.log("logout")
-    try {
-      await firebase
-        .auth()
-        .signOut()
-        .then(() => {
-          // Sign-out successful.
-          history.push("/sign-in")
-        })
-        .catch((error) => {
-          // An error happened.
-          seterrorMessage(error.message)
-        });
-
-    } catch (error) {
-      seterrorMessage("There was an error loging out");
-    }
-  }
+export const Home = ({ addToCart, addToWishList }) => {
+  const products = [
+    {
+      id: 1,
+      name: "khaki Trousers",
+      price: 45.0,
+      img: "trousers.jpg",
+      qtyInCart: 0,
+    },
+    {
+      id: 2,
+      name: "Lactogen",
+      price: 25.0,
+      img: "lactogen.jpg",
+      qtyInCart: 0,
+    },
+    {
+      id: 3,
+      name: "Cerelac",
+      price: 20.0,
+      img: "cerelac.jpg",
+      qtyInCart: 0,
+    },
+  ];
 
   return (
-    <div className="container h-100">
-      <div className="row m-auto my-5 h-100 ">
-        {user.name && (
-          <div className="col-4">
-            <div className="bg-light text-center p-3">
-              <div className="my-3">
-                <img src={user.picture} alt="avatar" />
-              </div>
-              <h4>{user.name}</h4>
-              <p>{user.email}</p>
-              {user.emailVerified === false && <p className="my-2">Verify your email</p>}
-              {user.name && (
-                <button className="btn btn-primary me-2" onClick={handleLogout}>
-                  Logout
-                </button>
-              )}
-            </div>
-          </div>
-        )}
-        <div className="col-8 m-auto text-center">
-          <h3 className="text-primary">
-            React Firebase Authentication with Email Verfication
-          </h3>
-          <h4>Hello and Welcome</h4>
-          {!user.name && <h5>Login or signup to test this application</h5>}
-          {user.name && <h5>You have successfully logged in</h5>}
-          <div className="my-3">
-            {errorMessage && <span>{errorMessage}</span>}
-            {!user.name && (
-              <Link to="/sign-in" className="btn btn-primary me-2">
-                Login/Signup
-              </Link>
-            )}
+    <div className="container">
+      <div className="row m-auto my-5">
+        <div className="col-md-3 d-none d-md-block">
+          <Aside />
+        </div>
+        <div className="col-12 col-md-9">
+          <div className="row">
+            {products.map((product) => (
+              <Product
+                key={product.id}
+                product={product}
+                addToCart={addToCart}
+                addToWishList={addToWishList}
+              />
+            ))}
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 

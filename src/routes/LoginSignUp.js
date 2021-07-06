@@ -1,12 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
 import {LoginForm} from "../components/"
 import { SignUpForm } from "../components/";
 
 export const LoginSignUp = () => {
   return (
     <div className="container">
-      <div className="col-5 mx-auto my-5 bg-light p-3 rounded">
+      <div className="col-12 col-sm-7 col-md-6 col-lg-4 mx-auto my-5 bg-light p-3 rounded">
         <nav>
           <div className="nav nav-tabs" id="nav-tab" role="tablist">
             <button
@@ -47,9 +46,6 @@ export const LoginSignUp = () => {
             role="tabpanel"
             aria-labelledby="nav-signup-tab">
             <SignUpForm />
-          </div>
-          <div className="text-center">
-            <Link to="/" className="text-center">Go Back</Link>
           </div>
         </div>
       </div>

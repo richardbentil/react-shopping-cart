@@ -1,4 +1,7 @@
+export {Header} from "./Header"
 export {LoginForm} from "./LoginForm"
 export {SignUpForm} from "./SignUpForm"
 export {ForgotPasswordForm} from "./ForgotPasswordForm"
 export {Spinner} from "./Spinner"
+export {Aside} from "./Aside"
+export {Product} from "./Product"
