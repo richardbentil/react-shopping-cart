@@ -6,7 +6,7 @@ export const Product = ({ product, addToCart, addToWishList }) => {
       <div className="card">
         <img
           className="card-img-top img-responsive"
-          src={`/img/products/${product.img}`}
+          src={`img/products/${product.img}`}
           alt={product.name}
         />
         <div className="card-body">
